@@ -1,14 +1,41 @@
+"use client"
+import { AuthContext } from '@/AuthProvider/AuthProvider';
 import Link from 'next/link';
-import React from 'react';
+import { usePathname } from 'next/navigation';
+import React, { useContext } from 'react';
 
 const Navbar = () => {
+    const { user, logout } = useContext(AuthContext);
+    const pathname = usePathname()
+
+    const handleLogout = () => {
+        logout()
+            .then = (() => { })
+                .catch(error => console.log(error))
+    }
+
     const navOption = <>
-        <li><Link href='/'>Home</Link></li>
-        <li><Link href='/alldonation'>All Donation</Link></li>
+        <li><Link href='/' className={pathname == "/" ? "active" : ""}>Home</Link></li>
+        <li><Link href='/alldonation' className={pathname == "/alldonation" ? "active" : ""}>All Donation</Link></li>
+        {/* <li><Link href='/login'>Log In</Link></li>
+        <li><Link href='/signup'>Signup</Link></li> */}
+
+        {
+            user?.email ?
+                <>
+
+                    <li><Link href='' onClick={handleLogout}>LogOut</Link></li>
+
+                </>
+                :
+                <>
+                    <li><Link href='/login'>Sign IN</Link></li>
+                </>
+        }
     </>
     return (
         <div>
-            <div className="navbar bg-base-100">
+            <div className="navbar bg-accent text-black font-bold">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
