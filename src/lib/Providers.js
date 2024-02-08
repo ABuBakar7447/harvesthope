@@ -1,15 +1,17 @@
 "use client";
 import AuthProvider from "@/AuthProvider/AuthProvider";
+import { store } from "@/redux/store";
+import { Provider } from "react-redux";
 
 
-const Providers = ({children}) => {
+const Providers = ({ children }) => {
     return (
-        
-        <AuthProvider>
-        {children}
-        </AuthProvider>
-            
-        
+        <Provider store={store}>
+            <AuthProvider>
+                {children}
+            </AuthProvider>
+        </Provider>
+
     );
 };
 

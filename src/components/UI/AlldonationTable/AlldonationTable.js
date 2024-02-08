@@ -1,10 +1,23 @@
+"use client"
 import { getAllDonation } from "@/utils/getAllDonationdata";
 import Image from "next/image";
+import { useState } from "react";
+import UpdateDonation from "./UpdateDonation";
+import { useGetAllDonationQuery } from "@/redux/api";
 
 
-const AlldonationTable = async () => {
-    const data = await getAllDonation();
-    console.log(data)
+const AlldonationTable = () => {
+   
+    const {data} = useGetAllDonationQuery('', { refetchOnMountOrArgChange: true, pollingInterval: 30000 });
+    console.log(data);
+
+    const [donation, setdonation] = useState([]);
+    
+    const handleitem = (item) => {
+        setdonation(item)
+        console.log(item);
+    }
+
     return (
         <div>
             <div className="overflow-x-auto">
@@ -24,7 +37,7 @@ const AlldonationTable = async () => {
                     <tbody>
                         {/* row 1 */}
                         {
-                            data.map((donations, index) =>
+                            data?.map((donations, index) =>
                                 <tr key={donations._id}>
                                     <th>
                                         {index + 1}
@@ -47,8 +60,11 @@ const AlldonationTable = async () => {
 
                                     </td>
                                     <td>{donations.price}</td>
-                                    <th>
-                                        <button className="btn btn-ghost btn-xs">details</button>
+
+                                    <th className="w-1/6 lg:w-1/12">
+                                        <button onClick={() => handleitem(donations)}>
+                                            <label htmlFor="my_modal_6" className="btn btn-outline btn-warning">Update</label>
+                                        </button>
                                     </th>
                                 </tr>
                             )
@@ -57,6 +73,8 @@ const AlldonationTable = async () => {
 
                 </table>
             </div>
+
+            <UpdateDonation donation={donation} />
         </div>
     );
 };
