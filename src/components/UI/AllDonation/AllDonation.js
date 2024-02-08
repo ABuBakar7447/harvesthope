@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const AllDonation = async () => {
     const data = await getAllDonation();
-    console.log(data);
+    // console.log(data);
     return (
         <div>
             <p className="text-4xl text-center font-bold text-accent my-16">

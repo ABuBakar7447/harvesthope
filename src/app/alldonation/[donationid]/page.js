@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const DonationId = async ({ params }) => {
     const data = await getDonation(params.donationid);
-    console.log(data)
+    // console.log(data)
     return (
         <div className="my-10">
             <div className="w-11/12 mx-auto">
