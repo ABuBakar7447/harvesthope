@@ -9,11 +9,16 @@ const DashboardNav = ({children}) => {
     const navoptions =
         <>
 
-            {/* {/* <li><Link to='/'>Home</Link></li>
-            <li><Link to='/dashboard/allgadget'>AllProduct</Link></li> */}
+           
             <li className='w-full flex items-center'><Link href='/admin/alldonation' className={pathname == "/admin/alldonation" ? "active px-16" : "px-16"}>All Donation</Link></li>
+
             <li className='w-full flex items-center'><Link href='/admin/createdonation' className={pathname == "/admin/createdonation" ? "active px-16" : "px-16"}>AddProduct</Link></li>
+
+            <li className='w-full flex items-center'><Link href='/admin/alluser' className={pathname == "/admin/alluser" ? "active px-16" : "px-16"}>All User</Link></li>
+
             <li className='w-full flex items-center'><Link href='/user/mydonation' className={pathname == "/user/mydonation" ? "active px-16" : "px-16"}>My Donation</Link></li>
+
+            
             
 
         </>
@@ -36,7 +41,7 @@ const DashboardNav = ({children}) => {
 
                     </div>
                     <div className="navbar-center hidden lg:flex justify-center">
-                        <ul className="menu menu-vertical px-1 w-full items-center gap-2">
+                        <ul className="menu menu-vertical px-1 w-full items-center gap-2 text-white font-semibold text-[14px]">
                             {navoptions}
                         </ul>
                     </div>

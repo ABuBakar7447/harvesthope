@@ -32,7 +32,7 @@ const Navbar = () => {
                     <li><Link href='/login'>Sign IN</Link></li>
                 </>
         }
-        <li><Link href='/dashboard' className={pathname == "/dashboard" ? "active" : ""}>Dashboard</Link></li>
+        <li><Link href='/user/mydonation' className={pathname == "/user/mydonation" ? "active" : ""}>Dashboard</Link></li>
     </>
     return (
         <div>

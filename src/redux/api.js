@@ -11,6 +11,11 @@ export const hopeharvestapi = createApi({
             providesTags:['donationtData'],
         }),
 
+        getAllUser: builder.query({
+            query:()=>'alluser',
+            providesTags:['donationtData'],
+        }),
+
         getUserDonation: builder.query({
             query:({email})=>`userdonationCollection?email=${email}`,
             providesTags:['donationtData'],
@@ -43,9 +48,28 @@ export const hopeharvestapi = createApi({
             invalidatesTags:['donationtData']
         }),
 
+
+        donationDelete: builder.mutation({
+            query: (id)=>({
+                url: `donationdelete/${id}`,
+                method: 'DELETE'
+            }),
+            invalidatesTags:['donationtData'],
+        }),
+
+
+        makeAdmin: builder.mutation({
+            query: (id)=>({
+                url: `makeadmin/${id}`,
+                method: 'PATCH',
+            }),
+            invalidatesTags:['gadgetData'],
+        }),
+
+
         
     })
 })
 
 
-export const {useGetAllDonationQuery,useGetUserDonationQuery,useDonationDataUpdataMutation, useDonationDataAddMutation, useUserDonationDataAddMutation} = hopeharvestapi;
+export const {useGetAllDonationQuery,useGetUserDonationQuery,useDonationDataUpdataMutation, useDonationDataAddMutation, useUserDonationDataAddMutation, useDonationDeleteMutation, useGetAllUserQuery, useMakeAdminMutation} = hopeharvestapi;

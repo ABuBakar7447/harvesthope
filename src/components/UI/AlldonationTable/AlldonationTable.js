@@ -3,19 +3,28 @@ import { getAllDonation } from "@/utils/getAllDonationdata";
 import Image from "next/image";
 import { useState } from "react";
 import UpdateDonation from "./UpdateDonation";
-import { useGetAllDonationQuery } from "@/redux/api";
+import { useDonationDeleteMutation, useGetAllDonationQuery } from "@/redux/api";
 
 
 const AlldonationTable = () => {
-   
-    const {data} = useGetAllDonationQuery('', { refetchOnMountOrArgChange: true, pollingInterval: 30000 });
+
+    const { data } = useGetAllDonationQuery('', { refetchOnMountOrArgChange: true, pollingInterval: 30000 });
+
+    const [donationDelete] = useDonationDeleteMutation()
     // console.log(data);
 
     const [donation, setdonation] = useState([]);
-    
+
     const handleitem = (item) => {
         setdonation(item)
         // console.log(item);
+    }
+
+
+    const handleDelete = (id) => {
+        console.log(id);
+        donationDelete(id)
+
     }
 
     return (
@@ -32,6 +41,7 @@ const AlldonationTable = () => {
                             <th>Donation Category</th>
                             <th>Price</th>
                             <th>Update Donation</th>
+                            <th>Delete Donation</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -64,6 +74,12 @@ const AlldonationTable = () => {
                                     <th className="w-1/6 lg:w-1/12">
                                         <button onClick={() => handleitem(donations)}>
                                             <label htmlFor="my_modal_6" className="btn btn-outline btn-warning">Update</label>
+                                        </button>
+                                    </th>
+
+                                    <th className="w-1/6 lg:w-1/12">
+                                        <button onClick={() => handleDelete(donations._id)} className="btn btn-outline btn-error">
+                                            Delete
                                         </button>
                                     </th>
                                 </tr>
