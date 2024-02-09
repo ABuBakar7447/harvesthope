@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const hopeharvestapi = createApi({
     reducerPath: 'hopeharvestapi',
-    baseQuery: fetchBaseQuery({baseUrl:'http://localhost:5000/'}),
+    baseQuery: fetchBaseQuery({baseUrl:'https://hope-harvest-server.vercel.app/'}),
     tagTypes:['donationtData'],
     endpoints:(builder) =>({
         getAllDonation: builder.query({
