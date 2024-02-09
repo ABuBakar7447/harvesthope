@@ -13,6 +13,7 @@ const DashboardNav = ({children}) => {
             <li><Link to='/dashboard/allgadget'>AllProduct</Link></li> */}
             <li className='w-full flex items-center'><Link href='/admin/alldonation' className={pathname == "/admin/alldonation" ? "active px-16" : "px-16"}>All Donation</Link></li>
             <li className='w-full flex items-center'><Link href='/admin/createdonation' className={pathname == "/admin/createdonation" ? "active px-16" : "px-16"}>AddProduct</Link></li>
+            <li className='w-full flex items-center'><Link href='/user/mydonation' className={pathname == "/user/mydonation" ? "active px-16" : "px-16"}>My Donation</Link></li>
             
 
         </>

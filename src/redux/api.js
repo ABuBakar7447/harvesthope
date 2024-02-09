@@ -10,6 +10,11 @@ export const hopeharvestapi = createApi({
             query:()=>'donationCollection',
             providesTags:['donationtData'],
         }),
+
+        getUserDonation: builder.query({
+            query:({email})=>`userdonationCollection?email=${email}`,
+            providesTags:['donationtData'],
+        }),
         
         donationDataUpdata: builder.mutation({
             query: ({id, data})=>({
@@ -43,4 +48,4 @@ export const hopeharvestapi = createApi({
 })
 
 
-export const {useGetAllDonationQuery,useDonationDataUpdataMutation, useDonationDataAddMutation, useUserDonationDataAddMutation} = hopeharvestapi;
+export const {useGetAllDonationQuery,useGetUserDonationQuery,useDonationDataUpdataMutation, useDonationDataAddMutation, useUserDonationDataAddMutation} = hopeharvestapi;

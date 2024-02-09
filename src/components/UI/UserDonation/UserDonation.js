@@ -1,23 +1,15 @@
 "use client"
-import { getAllDonation } from "@/utils/getAllDonationdata";
-import Image from "next/image";
-import { useState } from "react";
-import UpdateDonation from "./UpdateDonation";
-import { useGetAllDonationQuery } from "@/redux/api";
 
+import { AuthContext } from '@/AuthProvider/AuthProvider';
+import { useGetUserDonationQuery } from '@/redux/api';
+import Image from 'next/image';
+import React, { useContext } from 'react';
 
-const AlldonationTable = () => {
-   
-    const {data} = useGetAllDonationQuery('', { refetchOnMountOrArgChange: true, pollingInterval: 30000 });
+const UserDonation = () => {
+    const { user } = useContext(AuthContext)
+    const email = user?.email
+    const { data } = useGetUserDonationQuery({ email }, { refetchOnMountOrArgChange: true, pollingInterval: 30000 });
     // console.log(data);
-
-    const [donation, setdonation] = useState([]);
-    
-    const handleitem = (item) => {
-        setdonation(item)
-        // console.log(item);
-    }
-
     return (
         <div>
             <div className="overflow-x-auto">
@@ -30,7 +22,7 @@ const AlldonationTable = () => {
                             </th>
                             <th>Donation Name</th>
                             <th>Donation Category</th>
-                            <th>Price</th>
+                            <th>You Donated</th>
                             <th>Update Donation</th>
                         </tr>
                     </thead>
@@ -73,10 +65,8 @@ const AlldonationTable = () => {
 
                 </table>
             </div>
-
-            <UpdateDonation donation={donation} />
         </div>
     );
 };
 
-export default AlldonationTable;
+export default UserDonation;
