@@ -20,9 +20,27 @@ export const hopeharvestapi = createApi({
             invalidatesTags:['donationtData'],
         }),
 
+        donationDataAdd: builder.mutation({
+            query:({newdonationdata})=>({
+                url:'donationDataAdd',//use axiosSecure
+                method:'POST',
+                body:newdonationdata
+            }),
+            invalidatesTags:['donationtData']
+        }),
+
+        UserDonationDataAdd: builder.mutation({
+            query:({newdonationdata})=>({
+                url:'userDonationDataAdd',//use axiosSecure
+                method:'POST',
+                body:newdonationdata
+            }),
+            invalidatesTags:['donationtData']
+        }),
+
         
     })
 })
 
 
-export const {useGetAllDonationQuery,useDonationDataUpdataMutation} = hopeharvestapi;
+export const {useGetAllDonationQuery,useDonationDataUpdataMutation, useDonationDataAddMutation, useUserDonationDataAddMutation} = hopeharvestapi;
