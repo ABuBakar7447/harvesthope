@@ -29,7 +29,7 @@ const Navbar = () => {
                 </>
                 :
                 <>
-                    <li><Link href='/login'>Sign IN</Link></li>
+                    <li><Link href='/login' className={pathname == "/login" ? "active" : ""}>Sign IN</Link></li>
                 </>
         }
         <li><Link href='/user/mydonation' className={pathname == "/user/mydonation" ? "active" : ""}>Dashboard</Link></li>
