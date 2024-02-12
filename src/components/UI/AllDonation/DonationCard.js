@@ -6,7 +6,7 @@ const DonationCard = ({donations}) => {
     return (
         <div>
             <div>
-                <div className="card card-compact max-w-80 bg-base-100 shadow-xl text-accent">
+                <div className="card card-compact max-w-80 bg-base-100 shadow-xl text-accent mx-auto">
                     <figure>
                         <Image
                             src={donations.img}
