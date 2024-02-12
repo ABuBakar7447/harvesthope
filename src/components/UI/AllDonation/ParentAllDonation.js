@@ -27,7 +27,9 @@ const ParentAllDonation = ({ data }) => {
             </div>
 
 
-            
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 w-11/12 mx-auto">
+                {filteredData.map(donations => <DonationCard key={donations._id} donations={donations}></DonationCard>)}
+            </div>
         </div>
     );
 };
