@@ -1,8 +1,10 @@
 "use client"
 import { AuthContext } from '@/AuthProvider/AuthProvider';
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React, { useContext } from 'react';
+import imgpic from '@/asset/Logo.png';
 
 const Navbar = () => {
     const { user, logout } = useContext(AuthContext);
@@ -54,7 +56,9 @@ const Navbar = () => {
                             <li><a>Item 3</a></li>
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-xl">daisyUI</a>
+                    <a className="btn btn-ghost text-xl">
+                        <Image src={imgpic} alt='logo' width={100} height={100} />
+                    </a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
