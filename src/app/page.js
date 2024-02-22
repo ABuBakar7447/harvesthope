@@ -10,8 +10,8 @@ export default function Home() {
       <Banner></Banner>
       <Activity></Activity>
       <AllDonation></AllDonation>
-      <OurPromise></OurPromise>
-      <Volunteers></Volunteers>
+      {/* <OurPromise></OurPromise> */}
+      {/* <Volunteers></Volunteers> */}
     </div>
   );
 }
