@@ -10,7 +10,7 @@ export default function Home() {
       <Banner></Banner>
       <Activity></Activity>
       <AllDonation></AllDonation>
-      {/* <OurPromise></OurPromise> */}
+      <OurPromise></OurPromise>
       {/* <Volunteers></Volunteers> */}
     </div>
   );
