@@ -1,12 +1,12 @@
 "use client"
 import Image from "next/image";
-import lottie from "lottie-web";
-import { defineElement } from "@lordicon/element";
+import { Icon } from '@iconify/react';
 
-// define "lord-icon" custom element with default properties
-defineElement(lottie.loadAnimation);
+
 
 const Volunteers = () => {
+
+
     return (
         <div className="my-24">
             <div className="grid grid-cols-12 w-11/12 mx-auto h-[600px] bg-gray-900 rounded-2xl p-10 ">
@@ -21,13 +21,9 @@ const Volunteers = () => {
                         </p>
                         <div className="flex gap-5 my-8">
 
-                            <lord-icon
-                                src="https://cdn.lordicon.com/rsvfayfn.json"
-                                target="div"
-                                trigger="hover"
-                                colors="primary:#fff"
-                                style={{ width: "70px", height: "70px", }}>
-                            </lord-icon>
+                            <div>
+                                <Icon className="w-16 h-16 text-white" icon="mdi:telephone" />
+                            </div>
 
                             <p className="text-white text-lg">
                                 Have Any Question<br />

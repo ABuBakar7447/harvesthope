@@ -4,6 +4,7 @@ import Banner from "@/components/UI/Banner/Banner";
 import OurPromise from "@/components/UI/OurPromise/OurPromise";
 import Volunteers from "@/components/UI/Volunteers/Volunteers";
 
+
 export default function Home() {
   return (
     <div>
@@ -11,7 +12,7 @@ export default function Home() {
       <Activity></Activity>
       <AllDonation></AllDonation>
       <OurPromise></OurPromise>
-      {/* <Volunteers></Volunteers> */}
+      <Volunteers></Volunteers>
     </div>
   );
 }
