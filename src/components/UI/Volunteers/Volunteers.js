@@ -1,6 +1,7 @@
 "use client"
 import Image from "next/image";
 import { Icon } from '@iconify/react';
+import Script from "next/script";
 
 
 
@@ -22,7 +23,15 @@ const Volunteers = () => {
                         <div className="flex gap-5 my-8">
 
                             <div>
-                                <Icon className="w-16 h-16 text-white" icon="mdi:telephone" />
+                                {/* <Icon className="w-16 h-16 text-white" icon="mdi:telephone" /> */}
+                                <lord-icon
+                                    target="div"
+                                    src="https://cdn.lordicon.com/rsvfayfn.json"
+                                    trigger="hover"
+                                    colors="primary:#fff"
+                                    style={{ width: "64px", height: "64px", }}
+                                >
+                                </lord-icon>
                             </div>
 
                             <p className="text-white text-lg">
@@ -43,6 +52,7 @@ const Volunteers = () => {
                     <Image src="https://i.ibb.co/KwtbBbv/pmr-team-6-min-240x300.webp" alt="volunteerr-image" width={250} height={350} className="rounded-xl w-[250px] h-[350px] mt-16" />
                 </div>
             </div>
+            <Script src="https://cdn.lordicon.com/lordicon.js"></Script>
         </div>
     );
 };
